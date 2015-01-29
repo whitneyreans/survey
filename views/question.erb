@@ -1,0 +1,19 @@
+<h1><a href="/">Survey</a></h1>
+
+<h3><%= @question.text %></h3>
+<ul>
+  <% @question.answers.each do |answer| %>
+  <li><%= answer.text %></li>
+  <% end %>
+</ul>
+
+<h3>Create a new answer:</h3>
+<br>
+<form action="/answers" method="post">
+  <input id="question_id" name="question_id" type="hidden" value="<%= @question.id %>">
+
+  <label for="text">Answers text:</label>
+  <input id= "text" name="text" type="text">
+
+  <button type="submit">Add answer</button>
+</form>
